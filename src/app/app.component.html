@@ -1,0 +1,123 @@
+<style>
+  
+
+
+
+  table .btn{
+  margin: 2px;
+}
+
+
+  .border{
+  padding: 10px;
+}
+
+.border1{
+  padding: 10px;
+
+}
+
+.content1{
+  text-align: center;
+}
+
+.border2{
+  padding: 10px;
+}
+
+.btn{
+  margin-right: 10px;
+}
+.fa {
+  margin-right: 10px;
+}
+
+.btn {
+  border: red;
+  background-color: greenyellow;
+  padding: 12px 24px;
+  font-size: 12px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn:hover {background: #eee;}
+
+.SEARCH {color: green;}
+.RESET {color: dodgerblue;}
+.ADD NEW {color: orange;}
+
+
+</style>
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+
+ 
+
+</div>
+
+<div class="content" role="main">
+  <div class="content1" role="main">
+  <label for="firstname"> DEPARTMENT SEARCH</label>
+  
+</div>
+  <div class="container mt-5">
+  
+    <label for="firstname">Department_Code  </label>
+    
+      <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="filterTerm1">
+     
+    
+    <br>
+    <br>
+    <label for="firstname">Department_Name   </label>
+  
+      <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="filterTerm2">
+    
+    <br>
+    <br>
+    <button class="btn success">SEARCH</button>
+    <button class="btn info">RESET</button>
+    <button class="btn warning">ADD NEW</button>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Sr_No</th>
+          <th scope="col">Department_Code</th>
+          <th scope="col">Department_Name</th>
+          <th scope="col">Operation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of userRecords | filter:filterTerm1 | filter:filterTerm2">
+       
+          <td>{{user.sr_no}}</td>
+          <td>{{user.department_code}}</td>
+          <td>{{user.department_name}}</td>
+          
+          <td>
+           
+            <button (click) = "goToPage('Student')">
+              <i class="fa fa-edit"></i>Edit</button>
+             
+              <button>
+                <i class="fa fa-edit"></i>Delete</button>
+           
+          
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+ 
+
+
+
+
+
+
+<router-outlet></router-outlet>
